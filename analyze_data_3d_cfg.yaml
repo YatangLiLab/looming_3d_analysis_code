@@ -4,137 +4,179 @@ fps: 20
 
 # Joint names (standard mouse skeleton)
 joint_names:
+  - EarL
+  - EarR
   - Snout
-  - Nose
-  - HeadF
-  - HeadL
-  - Neck
   - SpineF
   - SpineM
-  - SpineL
-  - HipL
-  - HipR
-  - ShoulderL
-  - ShoulderR
-  - ElbowL
-  - ElbowR
-  - WristL
-  - WristR
-  - KneeL
-  - KneeR
-  - AnkleL
-  - AnkleR
-  - TailBase
+  - TailB
   - TailM
-  - TailTip
+  - ForepawL
+  - ElbowL
+  - WristL
+  - ShoulderL
+  - ForepawR
+  - WristR
+  - ElbowR
+  - ShoulderR
+  - HindpawL
+  - AnkleL
+  - KneeL
+  - HindpawR
+  - AnkleR
+  - KneeR
 
 # Simplified joint names
 simp_joint_names:
+  - EarL
+  - EarR
   - Snout
-  - Head
-  - Neck
   - SpineF
   - SpineM
-  - SpineL
-  - Hip
-  - Shoulder
-  - TailBase
+  - TailB
+  - TailM
+  - ForepawL
+  - ShoulderL
+  - ForepawR
+  - ShoulderR
+  - HindpawL
+  - KneeL
+  - HindpawR
+  - KneeR
 
 # Limb combinations for simplification
 limb_combos:
-  Snout: [Snout]
-  Head: [Nose, HeadF, HeadL]
-  Neck: [Neck]
-  SpineF: [SpineF]
-  SpineM: [SpineM]
-  SpineL: [SpineL]
-  Hip: [HipL, HipR]
-  Shoulder: [ShoulderL, ShoulderR]
-  TailBase: [TailBase]
+  EarL: ['EarL']
+  EarR: ['EarR']
+  Snout: ['Snout']
+  SpineF: ['SpineF']
+  SpineM: ['SpineM']
+  TailB: ['TailB']
+  TailM: ['TailM']
+  ForepawL: ['ForepawL', 'ElbowL']
+  ShoulderL: ['WristL', 'ShoulderL']
+  ForepawR: ['ForepawR', 'ElbowR']
+  ShoulderR: ['WristR', 'ShoulderR']
+  HindpawL: ['HindpawL', 'AnkleL']
+  KneeL: ['KneeL']
+  HindpawR: ['HindpawR', 'AnkleR']
+  KneeR: ['KneeR']
 
 # Limb order for kinematic chain
 limb_orders:
-  - [Snout, Nose, HeadF, HeadL, Neck]
-  - [Neck, SpineF, SpineM, SpineL]
-  - [SpineL, HipL, KneeL, AnkleL]
-  - [SpineL, HipR, KneeR, AnkleR]
-  - [SpineF, ShoulderL, ElbowL, WristL]
-  - [SpineF, ShoulderR, ElbowR, WristR]
-  - [SpineL, TailBase, TailM, TailTip]
+  EarL: 2
+  EarR: 2
+  Snout: 3
+  SpineF: 2
+  SpineM: 1
+  TailB: 2
+  TailM: 4
+  ShoulderL: 3
+  ElbowL: 4
+  WristL: 5
+  ForepawL: 6
+  ShoulderR: 3
+  ElbowR: 4
+  WristR: 5
+  ForepawR: 6
+  KneeL: 3
+  AnkleL: 4
+  HindpawL: 5
+  KneeR: 3
+  AnkleR: 4
+  HindpawR: 5
 
-# Skeleton connections (joint pairs for visualization)
+# Skeleton connections
 skel_conns:
-  - [0, 1]   # Snout-Nose
-  - [1, 2]   # Nose-HeadF
-  - [2, 3]   # HeadF-HeadL
-  - [3, 4]   # HeadL-Neck
-  - [4, 5]   # Neck-SpineF
-  - [5, 6]   # SpineF-SpineM
-  - [6, 7]   # SpineM-SpineL
-  - [7, 8]   # SpineL-HipL
-  - [7, 9]   # SpineL-HipR
-  - [8, 16]  # HipL-KneeL
-  - [9, 17]  # HipR-KneeR
-  - [16, 18] # KneeL-AnkleL
-  - [17, 19] # KneeR-AnkleR
-  - [5, 10]  # SpineF-ShoulderL
-  - [5, 11]  # SpineF-ShoulderR
-  - [10, 12] # ShoulderL-ElbowL
-  - [11, 13] # ShoulderR-ElbowR
-  - [12, 14] # ElbowL-WristL
-  - [13, 15] # ElbowR-WristR
-  - [7, 20]  # SpineL-TailBase
-  - [20, 21] # TailBase-TailM
-  - [21, 22] # TailM-TailTip
+  - [EarL, Snout]
+  - [EarR, Snout]
+  - [EarL, EarR]
+  - [Snout, SpineF]
+  - [SpineF, SpineM]
+  - [SpineM, TailB]
+  - [TailB, TailM]
+  - [SpineF, ShoulderL]
+  - [ShoulderL, ElbowL]
+  - [ElbowL, WristL]
+  - [WristL, ForepawL]
+  - [SpineF, ShoulderR]
+  - [ShoulderR, ElbowR]
+  - [ElbowR, WristR]
+  - [WristR, ForepawR]
+  - [TailB, KneeL]  
+  - [KneeL, AnkleL]
+  - [AnkleL, HindpawL]
+  - [TailB, KneeR]
+  - [KneeR, AnkleR]
+  - [AnkleR, HindpawR]
 
 # Simplified skeleton connections
 simp_skel_conns:
-  - [0, 1]  # Snout-Head
-  - [1, 2]  # Head-Neck
-  - [2, 3]  # Neck-SpineF
-  - [3, 4]  # SpineF-SpineM
-  - [4, 5]  # SpineM-SpineL
-  - [5, 6]  # SpineL-Hip
-  - [3, 7]  # SpineF-Shoulder
-  - [5, 8]  # SpineL-TailBase
+  - [EarL, Snout]
+  - [EarR, Snout]
+  - [EarL, EarR]
+  - [Snout, SpineF]
+  - [SpineF, SpineM]
+  - [SpineM, TailB]
+  - [TailB, TailM]
+  - [SpineF, ShoulderL]
+  - [ShoulderL, ForepawL]
+  - [SpineF, ShoulderR]
+  - [ShoulderR, ForepawR]
+  - [TailB, KneeL]  
+  - [KneeL, HindpawL]
+  - [TailB, KneeR]
+  - [KneeR, HindpawR]
 
 # Color maps for visualization
 c_maps:
-  head: '#FF0000'
-  body: '#00FF00'
-  limbs: '#0000FF'
-  tail: '#FFFF00'
+  head:
+    - [EarL, EarR, Snout]
+    - '#FF0000'
+  body:
+    - [SpineF, SpineM, TailB, TailM]
+    - '#00FF00'
+  forelimbs:
+    - [ShoulderL, ElbowL, WristL, ForepawL, ShoulderR, ElbowR, WristR, ForepawR]
+    - '#0000FF'
+  hindlimbs:
+    - [KneeL, AnkleL, HindpawL, KneeR, AnkleR, HindpawR]
+    - '#FFFF00'
 
 simp_c_maps:
-  head: '#FF0000'
-  body: '#00FF00'
-  tail: '#FFFF00'
+  head:
+    - [EarL, EarR, Snout]
+    - '#FF0000'
+  body:
+    - [SpineF, SpineM, TailB, TailM]
+    - '#00FF00'
+  limbs:
+    - [ForepawL, ShoulderL, ForepawR, ShoulderR, HindpawL, KneeL, HindpawR, KneeR]
+    - '#0000FF'
 
 # Joint credibility scores (higher = more reliable)
 joint_creds:
-  Snout: 0.95
-  Nose: 0.90
-  HeadF: 0.85
-  HeadL: 0.85
-  Neck: 0.90
-  SpineF: 0.95
-  SpineM: 0.95
-  SpineL: 0.95
-  HipL: 0.85
-  HipR: 0.85
-  ShoulderL: 0.85
-  ShoulderR: 0.85
-  ElbowL: 0.75
-  ElbowR: 0.75
-  WristL: 0.70
-  WristR: 0.70
-  KneeL: 0.75
-  KneeR: 0.75
-  AnkleL: 0.70
-  AnkleR: 0.70
-  TailBase: 0.85
-  TailM: 0.80
-  TailTip: 0.70
+  EarL: 0.5
+  EarR: 0.5
+  Snout: 0.5
+  SpineF: 0.8
+  SpineM: 1
+  TailB: 1
+  TailM: 0.3
+  ShoulderL: 0.8
+  ElbowL: 0.8
+  WristL: 0.5
+  ForepawL: 0.3
+  ShoulderR: 0.8
+  ElbowR: 0.8
+  WristR: 0.5
+  ForepawR: 0.3
+  KneeL: 0.8
+  AnkleL: 0.7
+  HindpawL: 0.5
+  KneeR: 0.8
+  AnkleR: 0.7
+  HindpawR: 0.5
 
 # Joints to exclude from analysis
 joint_exclude:
@@ -145,35 +187,45 @@ joint_exclude:
 
 # Behavior mapping (syllable number -> behavior name)
 bhvr_map:
-  0: other
-  1: running
-  2: running
-  3: walking
-  4: walking
-  5: walking_exploring
-  6: walking_exploring
-  7: slightly_mobile
-  8: slightly_mobile
-  9: immobile
-  10: immobile
-  11: immobile_curling
-  12: immobile_twisting
-  13: freezing
-  14: freezing
-  15: head_raising
-  16: incomplete_rearing
-  17: complete_rearing
-  18: supported_rearing
-  19: grooming
-  20: grooming
-  21: twisting
-  22: twisting_grooming_onnest
-  23: grooming_sliding_onnest
-  24: rearing_onnest
-  25: twisting_grooming_rearing
-  26: twisting_grooming_rearing_onnest
-  27: twisting_onnest
-  28: twisting_grooming_1frame_onnest
-  29: walking_exploring_onnest
-  30: trotting
-  31: rearing
+  0: walking
+  1: head_raising
+  2: walking
+  3: incomplete_rearing-onnest
+  4: incomplete_rearing
+  5: genital_grooming-complete_rearing-onnest
+  6: sniffing
+  7: immobile
+  8: complete_rearing
+  9: sniffing-onnest
+  10: body_grooming
+  11: face_grooming
+  12: rearing-onnest
+  13: face_grooming
+  14: incomplete_rearing
+  15: body_grooming-complete_rearing-onnest
+  16: trotting
+  17: rearing-onnest
+  18: complete_rearing-face_grooming
+  19: complete_rearing
+  20: sniffing-face_grooming_onnest
+  21: complete_rearing
+  22: face_grooming-complete_rearing-onnest
+  23: rearing-onnest
+  24: body_grooming-onnest
+  25: body_grooming-complete_rearing-onnest
+  26: slightly_mobile
+  27: face_grooming-immobile
+  28: complete_rearing
+  29: walking
+  30: other
+  31: complete_rearing
+  32: other
+  33: other
+  34: sniffing
+  35: other
+  37: complete_rearing
+  38: immobile
+  39: incomplete_rearing_onnest
+  40: immobile
+
+

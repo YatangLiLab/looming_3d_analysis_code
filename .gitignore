@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Data files
+*.pkl
+*.mp4
+*.avi
+*.csv
+*.h5
+*.hdf5
+
+# Output directories
+output/
+ethogram/
+bhvr_series_output/
+decision_heatmap/
+smooth_test_results/
+speed&dist2looming/
+
+# Temporary files
+.~lock.*
+*.tmp
+*.temp
+
+# IDE
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
